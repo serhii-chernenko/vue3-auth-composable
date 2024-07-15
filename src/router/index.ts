@@ -3,7 +3,6 @@ import { createWebHistory, createRouter } from 'vue-router'
 import LogInView from '@/views/LogIn.vue'
 //@ts-expect-error Vue: Could not find a declaration file for module
 import UserProfileView from '@/views/UserProfile.vue'
-//@ts-expect-error Vue: Could not find a declaration file for module
 import { useAuthUser } from '@/composables/useAuthUser'
 
 const routes = [
