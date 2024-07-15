@@ -15,8 +15,9 @@ export const router = createRouter({
     routes,
 })
 
-router.beforeEach((to) => {
+router.beforeEach(async (to) => {
     const { user } = useAuthUser()
+
     if (to.meta.requiresAuth && !user.value) {
         return '/login'
     }

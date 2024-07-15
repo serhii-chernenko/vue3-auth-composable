@@ -10,8 +10,8 @@ const { login } = useAuthUser()
 const error = ref('')
 
 const form = ref<LoginInfo>({
-    username: '',
-    password: '',
+    username: 'janedoe',
+    password: 'vueisawesome',
 })
 
 async function handleSubmit() {

@@ -14,8 +14,9 @@ interface User extends LoginInfo {
 
 type Login = (payload: LoginInfo) => Promise<void>
 
+const user = ref()
+
 export const useAuthUser = () => {
-    const user = ref()
     const router = useRouter()
 
     // This login function is a mock function that checks if the username and password are valid
@@ -24,10 +25,9 @@ export const useAuthUser = () => {
         const res = await fetch('/api/users.json')
         const users = await res.json()
 
-        user.value = users.find(
-            (user: User) =>
-                user.username === username && user.password === password,
-        )
+        user.value = users.find((user: User) => {
+            return user.username === username && user.password === password
+        })
 
         if (!user.value) {
             throw new Error('Invalid username or password')
