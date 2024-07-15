@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useAuthUser } from '@/composables/useAuthUser'
 
 const { user, logout } = useAuthUser()

@@ -1,14 +1,15 @@
-<script setup>
+<script setup lang="ts">
 import { useAuthUser } from '@/composables/useAuthUser'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
+import type { LoginInfo } from '@/composables/useAuthUser'
 
 const router = useRouter()
 const { login } = useAuthUser()
 
 const error = ref('')
 
-const form = ref({
+const form = ref<LoginInfo>({
     username: '',
     password: '',
 })
@@ -18,7 +19,7 @@ async function handleSubmit() {
         await login({ ...form.value })
         router.push('/')
     } catch (err) {
-        error.value = err.message
+        error.value = (err as any).message
     }
 }
 </script>

@@ -1,10 +1,11 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-interface LoginInfo {
+export interface LoginInfo {
     username: string
     password: string
 }
+
 interface User extends LoginInfo {
     id: number
     name: string
